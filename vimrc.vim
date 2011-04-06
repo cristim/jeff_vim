@@ -35,9 +35,9 @@ if has("gui_running")
 endif
 
 " Turn on spell checking with English dictionary
-set spell
-set spelllang=en
-set spellsuggest=9 "show only 9 suggestions for misspelled words
+"set spell
+"set spelllang=en
+"set spellsuggest=9 "show only 9 suggestions for misspelled words
 " Selectively turn spelling off.
 autocmd FileType c,cpp,lisp,puppet,ruby,vim setlocal nospell
 
@@ -86,8 +86,8 @@ syntax enable
 
 " Enable indent folding
 if version >= 702
-  set foldenable
-  set fdm=indent
+"  set foldenable
+"  set fdm=indent
 end
 
 " Set space to toggle a fold
@@ -154,15 +154,15 @@ endfunction
 " autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 
 
-highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+"highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 
 if version >= 702
 
   " Use :call clearmatches() to clear these matches.
   " Give an indicator when we approach col 80 (>72)
-  au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>72v', -1)
+"  au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>72v', -1)
   " Give a strong indicator when we exceed col 80(>80)
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+"  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
   " Give an indicator of tailing white space.
   au BufWinEnter * let w:m3=matchadd('ErrorMsg', '\s\+$', -1)
   " Give an indicator of spaces before a tab.
