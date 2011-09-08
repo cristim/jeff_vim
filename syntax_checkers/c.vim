@@ -74,6 +74,8 @@ function! s:Init()
                 \ ['sdl', 'sdl'])
     call s:RegHandler('opengl', 's:CheckPKG',
                 \ ['opengl', 'gl'])
+    call s:RegHandler('libgupnp-igd', 's:CheckPKG',
+                \ ['libgupnp-igd', 'gupnp-igd-1.0'])
     call s:RegHandler('ruby', 's:CheckRuby', [])
     call s:RegHandler('Python\.h', 's:CheckPython', [])
     call s:RegHandler('php\.h', 's:CheckPhp', [])
