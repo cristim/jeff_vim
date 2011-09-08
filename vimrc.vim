@@ -243,4 +243,12 @@ let g:syntastic_enable_signs=1
 " automatically open a location list when a file is saved with syntax errors
 let g:syntastic_auto_loc_list=1
 
+" Disable the C syntax checker
+let g:loaded_c_syntax_checker=1
+
+if has('autocmd')
+  filetype plugin indent on
+  autocmd BufEnter *.c,*.h,*.cpp,*.hpp,*.cc source ~/.vim/c.vim
+endif
+
 " EOF
