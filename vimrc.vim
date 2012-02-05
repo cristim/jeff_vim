@@ -29,7 +29,7 @@ filetype indent on
 
 if has("gui_running")
   "Set the font and size
-  set guifont=Consolas:h18
+  set guifont=Inconsolata\ Medium\ 11
   " Hide toolbar
   set guioptions-=T
 endif
@@ -160,15 +160,17 @@ if version >= 702
 
   " Use :call clearmatches() to clear these matches.
   " Give an indicator when we approach col 80 (>72)
-"  au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>72v', -1)
+  " au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>72v', -1)
   " Give a strong indicator when we exceed col 80(>80)
-"  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+  " au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
   " Give an indicator of tailing white space.
   au BufWinEnter * let w:m3=matchadd('ErrorMsg', '\s\+$', -1)
   " Give an indicator of spaces before a tab.
   au BufWinEnter * let w:m4=matchadd('ErrorMsg', ' \+\ze\t', -1)
   " Give an indicator of tabs before a space.
   au BufWinEnter * let w:m5=matchadd('ErrorMsg', '\t\+\ze ', -1)
+  " Just highlight all tabs.  They're annoying.
+  au BufWinEnter * let w:m6=matchadd('ErrorMsg', '\t\+', -1)
 
 end
 
@@ -243,12 +245,19 @@ let g:syntastic_enable_signs=1
 " automatically open a location list when a file is saved with syntax errors
 let g:syntastic_auto_loc_list=1
 
-" Disable the C syntax checker
-let g:loaded_c_syntax_checker=1
+"disable real syntax checking for c/c++
+let loaded_c_syntax_checker = 1
+let g:syntastic_c_no_include_search = 1
+
+let loaded_cpp_syntax_checker = 1
 
 if has('autocmd')
   filetype plugin indent on
   autocmd BufEnter *.c,*.h,*.cpp,*.hpp,*.cc source ~/.vim/c.vim
 endif
+
+" Automatically reload files on changes.
+" Useful for git rebasing and such
+set autoread
 
 " EOF
