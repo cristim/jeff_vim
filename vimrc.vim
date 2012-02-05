@@ -29,7 +29,7 @@ filetype indent on
 
 if has("gui_running")
   "Set the font and size
-  set guifont=Consolas:h18
+  set guifont=Inconsolata\ Medium\ 11
   " Hide toolbar
   set guioptions-=T
 endif
@@ -245,8 +245,16 @@ let g:syntastic_enable_signs=1
 " automatically open a location list when a file is saved with syntax errors
 let g:syntastic_auto_loc_list=1
 
+"disable real syntax checking for c/c++
+let loaded_c_syntax_checker = 1
+let g:syntastic_c_no_include_search = 1
+
+let loaded_cpp_syntax_checker = 1
+
+
 " Automatically reload files on changes.
 " Useful for git rebasing and such
 set autoread
+
 
 " EOF
